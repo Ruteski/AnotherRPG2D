@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://dr7tbuq8oibjn"]
+
+[ext_resource type="PackedScene" uid="uid://ttj8tdsafegm" path="res://scenes/terrain_manager.tscn" id="1_qusuw"]
+[ext_resource type="PackedScene" uid="uid://bpns85idi26f6" path="res://scenes/characters/paw.tscn" id="2_n2awn"]
+
+[node name="GameLevel" type="Node2D"]
+
+[node name="TerrainManager" parent="." instance=ExtResource("1_qusuw")]
+
+[node name="Paw" parent="." instance=ExtResource("2_n2awn")]
+position = Vector2(60, 688)
