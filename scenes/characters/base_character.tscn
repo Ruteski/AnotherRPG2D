@@ -3,6 +3,8 @@
 [ext_resource type="Script" path="res://scripts/character/base_character.gd" id="1_swggp"]
 
 [node name="BaseCharacter" type="CharacterBody2D" node_paths=PackedStringArray("_animation", "_sprite2d")]
+collision_layer = 9
+collision_mask = 9
 script = ExtResource("1_swggp")
 _animation = NodePath("Animation")
 _sprite2d = NodePath("Texture")
@@ -12,5 +14,7 @@ _sprite2d = NodePath("Texture")
 [node name="Collision" type="CollisionShape2D" parent="."]
 
 [node name="Animation" type="AnimationPlayer" parent="."]
+
+[node name="CharacterCamera" type="Camera2D" parent="."]
 
 [connection signal="animation_finished" from="Animation" to="." method="_on_animation_finished"]

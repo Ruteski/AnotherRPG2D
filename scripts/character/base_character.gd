@@ -3,6 +3,7 @@ class_name BaseCharacter
 
 var _can_attack: bool = true
 var _attack_animation_name: String = ""
+var _is_in_mountain: bool = false
 
 @export_category("Variables")
 @export var _move_speed: float = 128.0
@@ -12,6 +13,11 @@ var _attack_animation_name: String = ""
 @export_category("Objects")
 @export var _animation: AnimationPlayer
 @export var _sprite2d: Sprite2D
+@export var _bridge: TileMapLayer
+
+
+func _ready() -> void:
+	update_mountain_state(_is_in_mountain)
 
 
 func _physics_process(_delta: float) -> void:
@@ -19,8 +25,8 @@ func _physics_process(_delta: float) -> void:
 	attack()
 	flip_sprite()
 	animate()
-	
-	
+
+
 func attack() -> void:
 	if ((Input.is_action_just_pressed("left_attack") || Input.is_action_just_pressed("attack_a"))
 		&& _can_attack
@@ -34,8 +40,8 @@ func attack() -> void:
 		_can_attack = false
 		_attack_animation_name = _right_attack_name
 		set_physics_process(false)
-	
-	
+
+
 func move() -> void:
 	# o get_vector automagicamente normaliza o vetor
 	var _direction: Vector2 = Input.get_vector(
@@ -47,8 +53,8 @@ func move() -> void:
 	
 	velocity = _direction * _move_speed
 	move_and_slide()
-	
-	
+
+
 func animate() -> void:
 	# nao pode atacar, significa que ja clicou pra atacar
 	if !_can_attack:
@@ -60,8 +66,8 @@ func animate() -> void:
 		_animation.play("run")
 	else:
 		_animation.play("idle")
-	
-	
+
+
 func flip_sprite() -> void:
 	if velocity.x > 0:
 		_sprite2d.flip_h = false
@@ -73,3 +79,28 @@ func _on_animation_finished(anim_name: StringName) -> void:
 	if anim_name == "attack_axe" || anim_name == "attack_hammer":
 		_can_attack = true
 		set_physics_process(true)
+
+
+func update_collision_layer_mask(type: String) -> void:
+	if type == "in": # player entrando na ponte
+		set_collision_layer_value(2, true) # se tornando da layer da ponte
+		set_collision_layer_value(1, false) # deixando de ser da layer padrao
+		set_collision_mask_value(2, true) # se tornando da mask da ponte
+		set_collision_mask_value(1, false) # deixando de ser da mask padrao
+	else: # player saind da ponte
+		set_collision_layer_value(2, false) # se deixando de ser da layer da ponte
+		set_collision_layer_value(1, true) # voltando a ser da layer padrao
+		set_collision_mask_value(2, false) # se deixando de ser da mask da ponte
+		set_collision_mask_value(1, true) # voltando a ser da mask padrao
+
+
+func update_mountain_state(state: bool):
+	_is_in_mountain = state
+	if !_is_in_mountain:
+		_bridge.z_index = 1
+	else:
+		_bridge.z_index = 0
+
+
+func get_is_in_mountain() -> bool:
+	return _is_in_mountain

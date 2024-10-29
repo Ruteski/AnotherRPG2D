@@ -1,11 +1,60 @@
-[gd_scene load_steps=3 format=3 uid="uid://dr7tbuq8oibjn"]
+[gd_scene load_steps=9 format=4 uid="uid://dr7tbuq8oibjn"]
 
 [ext_resource type="PackedScene" uid="uid://ttj8tdsafegm" path="res://scenes/terrain_manager.tscn" id="1_qusuw"]
 [ext_resource type="PackedScene" uid="uid://bpns85idi26f6" path="res://scenes/characters/paw.tscn" id="2_n2awn"]
+[ext_resource type="Script" path="res://scripts/interactables/bridge_area.gd" id="3_1ja16"]
+[ext_resource type="Texture2D" uid="uid://dv7lvmxd070d0" path="res://assets/Terrain/Bridge/Bridge_All.png" id="3_mxue7"]
+[ext_resource type="PackedScene" uid="uid://nl6aykkq4ap2" path="res://scenes/interactable/ladder_area.tscn" id="5_mypqw"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_poq18"]
+texture = ExtResource("3_mxue7")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -32, 32, -32, 32, -16, -8, -16)
+0:0/0/physics_layer_0/polygon_1/points = PackedVector2Array(-8, 16, 32, 16, 32, 24, -8, 24)
+1:0/0 = 0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(32, -32, -32, -32, -32, -16, 32, -16)
+1:0/0/physics_layer_0/polygon_1/points = PackedVector2Array(32, 16, -32, 16, -32, 26.6667, 32, 26.6667)
+2:0/0 = 0
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(8, -32, -32, -32, -32, -16, 5.33333, -16)
+2:0/0/physics_layer_0/polygon_1/points = PackedVector2Array(8, 16, -32, 16, -32, 24, 8, 24)
+
+[sub_resource type="TileSet" id="TileSet_fmveg"]
+tile_size = Vector2i(64, 64)
+physics_layer_0/collision_layer = 2
+physics_layer_0/collision_mask = 2
+sources/1 = SubResource("TileSetAtlasSource_poq18")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8qlcr"]
+size = Vector2(626, 34)
 
 [node name="GameLevel" type="Node2D"]
 
 [node name="TerrainManager" parent="." instance=ExtResource("1_qusuw")]
 
-[node name="Paw" parent="." instance=ExtResource("2_n2awn")]
-position = Vector2(60, 688)
+[node name="Bridge" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray("AAAlAAcAAQACAAAAAAAkAAcAAQABAAAAAAAjAAcAAQABAAAAAAAiAAcAAQABAAAAAAAhAAcAAQABAAAAAAAgAAcAAQABAAAAAAAfAAcAAQABAAAAAAAeAAcAAQABAAAAAAAdAAcAAQABAAAAAAAcAAcAAQABAAAAAAAbAAcAAQAAAAAAAAA=")
+tile_set = SubResource("TileSet_fmveg")
+
+[node name="BridgeArea" type="Area2D" parent="Bridge"]
+position = Vector2(1782, 478)
+collision_layer = 8
+collision_mask = 8
+script = ExtResource("3_1ja16")
+
+[node name="Collision" type="CollisionShape2D" parent="Bridge/BridgeArea"]
+visible = false
+position = Vector2(299, 2)
+shape = SubResource("RectangleShape2D_8qlcr")
+
+[node name="Paw" parent="." node_paths=PackedStringArray("_bridge") instance=ExtResource("2_n2awn")]
+position = Vector2(1379, 678)
+_bridge = NodePath("../Bridge")
+
+[node name="LadderArea" parent="." instance=ExtResource("5_mypqw")]
+position = Vector2(2655, 606)
+
+[node name="LadderArea2" parent="." instance=ExtResource("5_mypqw")]
+
+[connection signal="body_entered" from="Bridge/BridgeArea" to="Bridge/BridgeArea" method="_on_body_entered"]
+[connection signal="body_exited" from="Bridge/BridgeArea" to="Bridge/BridgeArea" method="_on_body_exited"]
