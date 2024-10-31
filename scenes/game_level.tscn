@@ -1,10 +1,17 @@
-[gd_scene load_steps=9 format=4 uid="uid://dr7tbuq8oibjn"]
+[gd_scene load_steps=16 format=4 uid="uid://dr7tbuq8oibjn"]
 
 [ext_resource type="PackedScene" uid="uid://ttj8tdsafegm" path="res://scenes/terrain_manager.tscn" id="1_qusuw"]
 [ext_resource type="PackedScene" uid="uid://bpns85idi26f6" path="res://scenes/characters/paw.tscn" id="2_n2awn"]
 [ext_resource type="Script" path="res://scripts/interactables/bridge_area.gd" id="3_1ja16"]
 [ext_resource type="Texture2D" uid="uid://dv7lvmxd070d0" path="res://assets/Terrain/Bridge/Bridge_All.png" id="3_mxue7"]
+[ext_resource type="PackedScene" uid="uid://dw1jbj8nac13i" path="res://scenes/mushroom.tscn" id="5_go4ia"]
 [ext_resource type="PackedScene" uid="uid://nl6aykkq4ap2" path="res://scenes/interactable/ladder_area.tscn" id="5_mypqw"]
+[ext_resource type="PackedScene" uid="uid://ikdsp1poevro" path="res://scenes/rocks.tscn" id="6_hnvlf"]
+[ext_resource type="PackedScene" uid="uid://b7460dvgahguw" path="res://scenes/bushs.tscn" id="7_q6mld"]
+[ext_resource type="PackedScene" uid="uid://8bgojbjsi324" path="res://scenes/cactus.tscn" id="8_r7q71"]
+[ext_resource type="PackedScene" uid="uid://dcmxl6cytql3i" path="res://scenes/pumpkins.tscn" id="9_kd8lq"]
+[ext_resource type="PackedScene" uid="uid://lp5s3wonkhl8" path="res://scenes/bones.tscn" id="10_gi08r"]
+[ext_resource type="PackedScene" uid="uid://dgpa0rambbsrb" path="res://scenes/sign.tscn" id="11_66s04"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_poq18"]
 texture = ExtResource("3_mxue7")
@@ -47,14 +54,323 @@ visible = false
 position = Vector2(299, 2)
 shape = SubResource("RectangleShape2D_8qlcr")
 
-[node name="Paw" parent="." node_paths=PackedStringArray("_bridge") instance=ExtResource("2_n2awn")]
-position = Vector2(1379, 678)
-_bridge = NodePath("../Bridge")
+[node name="Decorations" type="Node2D" parent="."]
+y_sort_enabled = true
 
-[node name="LadderArea" parent="." instance=ExtResource("5_mypqw")]
+[node name="Paw" parent="Decorations" node_paths=PackedStringArray("_bridge") instance=ExtResource("2_n2awn")]
+position = Vector2(1379, 678)
+_bridge = NodePath("../../Bridge")
+
+[node name="Mushroons" type="Node2D" parent="Decorations"]
+y_sort_enabled = true
+
+[node name="Mushroom" parent="Decorations/Mushroons" instance=ExtResource("5_go4ia")]
+position = Vector2(2624, 448)
+
+[node name="Mushroom11" parent="Decorations/Mushroons" instance=ExtResource("5_go4ia")]
+position = Vector2(4160, 64)
+
+[node name="Mushroom12" parent="Decorations/Mushroons" instance=ExtResource("5_go4ia")]
+position = Vector2(4288, -128)
+
+[node name="Mushroom13" parent="Decorations/Mushroons" instance=ExtResource("5_go4ia")]
+position = Vector2(4736, -256)
+
+[node name="Mushroom14" parent="Decorations/Mushroons" instance=ExtResource("5_go4ia")]
+position = Vector2(4800, -640)
+
+[node name="Mushroom15" parent="Decorations/Mushroons" instance=ExtResource("5_go4ia")]
+position = Vector2(4544, -832)
+
+[node name="Mushroom16" parent="Decorations/Mushroons" instance=ExtResource("5_go4ia")]
+position = Vector2(5376, 0)
+
+[node name="Mushroom17" parent="Decorations/Mushroons" instance=ExtResource("5_go4ia")]
+position = Vector2(5824, -128)
+
+[node name="Mushroom18" parent="Decorations/Mushroons" instance=ExtResource("5_go4ia")]
+position = Vector2(6080, 384)
+
+[node name="Mushroom19" parent="Decorations/Mushroons" instance=ExtResource("5_go4ia")]
+position = Vector2(5632, 704)
+
+[node name="Mushroom20" parent="Decorations/Mushroons" instance=ExtResource("5_go4ia")]
+position = Vector2(4800, 384)
+
+[node name="Mushroom21" parent="Decorations/Mushroons" instance=ExtResource("5_go4ia")]
+position = Vector2(4736, 768)
+
+[node name="Mushroom2" parent="Decorations/Mushroons" instance=ExtResource("5_go4ia")]
+position = Vector2(2432, 576)
+
+[node name="Mushroom3" parent="Decorations/Mushroons" instance=ExtResource("5_go4ia")]
+position = Vector2(1600, 384)
+
+[node name="Mushroom4" parent="Decorations/Mushroons" instance=ExtResource("5_go4ia")]
+position = Vector2(832, 128)
+
+[node name="Mushroom5" parent="Decorations/Mushroons" instance=ExtResource("5_go4ia")]
+position = Vector2(896, 256)
+
+[node name="Mushroom6" parent="Decorations/Mushroons" instance=ExtResource("5_go4ia")]
+position = Vector2(384, 192)
+
+[node name="Mushroom7" parent="Decorations/Mushroons" instance=ExtResource("5_go4ia")]
+position = Vector2(384, 512)
+
+[node name="Mushroom8" parent="Decorations/Mushroons" instance=ExtResource("5_go4ia")]
+position = Vector2(128, 192)
+
+[node name="Mushroom9" parent="Decorations/Mushroons" instance=ExtResource("5_go4ia")]
+position = Vector2(640, 64)
+
+[node name="Mushroom10" parent="Decorations/Mushroons" instance=ExtResource("5_go4ia")]
+position = Vector2(1216, 192)
+
+[node name="Rocks" type="Node2D" parent="Decorations"]
+y_sort_enabled = true
+
+[node name="Rocks" parent="Decorations/Rocks" instance=ExtResource("6_hnvlf")]
+
+[node name="Rocks2" parent="Decorations/Rocks" instance=ExtResource("6_hnvlf")]
+position = Vector2(256, 384)
+
+[node name="Rocks3" parent="Decorations/Rocks" instance=ExtResource("6_hnvlf")]
+position = Vector2(128, 768)
+
+[node name="Rocks4" parent="Decorations/Rocks" instance=ExtResource("6_hnvlf")]
+position = Vector2(1088, 128)
+
+[node name="Rocks5" parent="Decorations/Rocks" instance=ExtResource("6_hnvlf")]
+position = Vector2(1152, 576)
+
+[node name="Rocks6" parent="Decorations/Rocks" instance=ExtResource("6_hnvlf")]
+position = Vector2(1728, 512)
+
+[node name="Rocks7" parent="Decorations/Rocks" instance=ExtResource("6_hnvlf")]
+position = Vector2(2496, 384)
+
+[node name="Rocks8" parent="Decorations/Rocks" instance=ExtResource("6_hnvlf")]
+position = Vector2(2880, 896)
+
+[node name="Rocks9" parent="Decorations/Rocks" instance=ExtResource("6_hnvlf")]
+position = Vector2(3200, 1088)
+
+[node name="Rocks10" parent="Decorations/Rocks" instance=ExtResource("6_hnvlf")]
+position = Vector2(3584, 576)
+
+[node name="Rocks11" parent="Decorations/Rocks" instance=ExtResource("6_hnvlf")]
+position = Vector2(4416, 1344)
+
+[node name="Rocks12" parent="Decorations/Rocks" instance=ExtResource("6_hnvlf")]
+position = Vector2(5056, 704)
+
+[node name="Rocks13" parent="Decorations/Rocks" instance=ExtResource("6_hnvlf")]
+position = Vector2(4608, 64)
+
+[node name="Rocks14" parent="Decorations/Rocks" instance=ExtResource("6_hnvlf")]
+position = Vector2(5696, 320)
+
+[node name="Rocks15" parent="Decorations/Rocks" instance=ExtResource("6_hnvlf")]
+position = Vector2(6400, 0)
+
+[node name="Rocks16" parent="Decorations/Rocks" instance=ExtResource("6_hnvlf")]
+position = Vector2(5696, -768)
+
+[node name="Rocks17" parent="Decorations/Rocks" instance=ExtResource("6_hnvlf")]
+position = Vector2(5312, -384)
+
+[node name="Rocks18" parent="Decorations/Rocks" instance=ExtResource("6_hnvlf")]
+position = Vector2(5376, -384)
+
+[node name="Rocks19" parent="Decorations/Rocks" instance=ExtResource("6_hnvlf")]
+position = Vector2(5312, -448)
+
+[node name="Bushs" type="Node2D" parent="Decorations"]
+y_sort_enabled = true
+
+[node name="Bushs" parent="Decorations/Bushs" instance=ExtResource("7_q6mld")]
+position = Vector2(768, 64)
+
+[node name="Bushs2" parent="Decorations/Bushs" instance=ExtResource("7_q6mld")]
+position = Vector2(960, 384)
+
+[node name="Bushs3" parent="Decorations/Bushs" instance=ExtResource("7_q6mld")]
+position = Vector2(1472, 320)
+
+[node name="Bushs4" parent="Decorations/Bushs" instance=ExtResource("7_q6mld")]
+position = Vector2(2368, 384)
+
+[node name="Bushs5" parent="Decorations/Bushs" instance=ExtResource("7_q6mld")]
+position = Vector2(4160, 384)
+
+[node name="Bushs6" parent="Decorations/Bushs" instance=ExtResource("7_q6mld")]
+position = Vector2(4992, 0)
+
+[node name="Bushs7" parent="Decorations/Bushs" instance=ExtResource("7_q6mld")]
+position = Vector2(5312, -192)
+
+[node name="Bushs8" parent="Decorations/Bushs" instance=ExtResource("7_q6mld")]
+position = Vector2(6144, 320)
+
+[node name="Bushs9" parent="Decorations/Bushs" instance=ExtResource("7_q6mld")]
+position = Vector2(5312, 448)
+
+[node name="Cactus" type="Node2D" parent="Decorations"]
+y_sort_enabled = true
+
+[node name="Cactus" parent="Decorations/Cactus" instance=ExtResource("8_r7q71")]
+position = Vector2(1600, 704)
+
+[node name="Cactus2" parent="Decorations/Cactus" instance=ExtResource("8_r7q71")]
+position = Vector2(1856, 320)
+
+[node name="Cactus3" parent="Decorations/Cactus" instance=ExtResource("8_r7q71")]
+position = Vector2(2688, 256)
+
+[node name="Cactus4" parent="Decorations/Cactus" instance=ExtResource("8_r7q71")]
+position = Vector2(2944, 640)
+
+[node name="Cactus5" parent="Decorations/Cactus" instance=ExtResource("8_r7q71")]
+position = Vector2(3776, 1152)
+
+[node name="Cactus6" parent="Decorations/Cactus" instance=ExtResource("8_r7q71")]
+position = Vector2(4160, 1600)
+
+[node name="Cactus7" parent="Decorations/Cactus" instance=ExtResource("8_r7q71")]
+position = Vector2(5376, 1152)
+
+[node name="Cactus8" parent="Decorations/Cactus" instance=ExtResource("8_r7q71")]
+position = Vector2(5824, 1792)
+
+[node name="Cactus9" parent="Decorations/Cactus" instance=ExtResource("8_r7q71")]
+position = Vector2(6528, 640)
+
+[node name="Cactus10" parent="Decorations/Cactus" instance=ExtResource("8_r7q71")]
+position = Vector2(6144, -704)
+
+[node name="Cactus11" parent="Decorations/Cactus" instance=ExtResource("8_r7q71")]
+position = Vector2(5568, -1280)
+
+[node name="Cactus12" parent="Decorations/Cactus" instance=ExtResource("8_r7q71")]
+position = Vector2(4096, -640)
+
+[node name="Pumpkins" type="Node2D" parent="Decorations"]
+y_sort_enabled = true
+
+[node name="Pumpkins" parent="Decorations/Pumpkins" instance=ExtResource("9_kd8lq")]
+position = Vector2(448, 0)
+
+[node name="Pumpkins2" parent="Decorations/Pumpkins" instance=ExtResource("9_kd8lq")]
+position = Vector2(192, 512)
+
+[node name="Pumpkins3" parent="Decorations/Pumpkins" instance=ExtResource("9_kd8lq")]
+position = Vector2(1280, 64)
+
+[node name="Pumpkins4" parent="Decorations/Pumpkins" instance=ExtResource("9_kd8lq")]
+position = Vector2(4096, 192)
+
+[node name="Pumpkins5" parent="Decorations/Pumpkins" instance=ExtResource("9_kd8lq")]
+position = Vector2(4416, -512)
+
+[node name="Pumpkins6" parent="Decorations/Pumpkins" instance=ExtResource("9_kd8lq")]
+position = Vector2(4480, -512)
+
+[node name="Pumpkins7" parent="Decorations/Pumpkins" instance=ExtResource("9_kd8lq")]
+position = Vector2(5120, 256)
+
+[node name="Pumpkins8" parent="Decorations/Pumpkins" instance=ExtResource("9_kd8lq")]
+position = Vector2(5184, -832)
+
+[node name="Bones" type="Node2D" parent="Decorations"]
+
+[node name="Bones" parent="Decorations/Bones" instance=ExtResource("10_gi08r")]
+position = Vector2(-384, 128)
+
+[node name="Bones2" parent="Decorations/Bones" instance=ExtResource("10_gi08r")]
+position = Vector2(-256, 384)
+
+[node name="Bones3" parent="Decorations/Bones" instance=ExtResource("10_gi08r")]
+position = Vector2(1408, 768)
+
+[node name="Bones4" parent="Decorations/Bones" instance=ExtResource("10_gi08r")]
+position = Vector2(2368, 576)
+
+[node name="Bones5" parent="Decorations/Bones" instance=ExtResource("10_gi08r")]
+position = Vector2(4288, 768)
+
+[node name="Bones6" parent="Decorations/Bones" instance=ExtResource("10_gi08r")]
+position = Vector2(4160, -256)
+
+[node name="Bones7" parent="Decorations/Bones" instance=ExtResource("10_gi08r")]
+position = Vector2(4352, -1152)
+
+[node name="Bones8" parent="Decorations/Bones" instance=ExtResource("10_gi08r")]
+position = Vector2(5248, -1088)
+
+[node name="Bones9" parent="Decorations/Bones" instance=ExtResource("10_gi08r")]
+position = Vector2(6656, -448)
+
+[node name="Bones10" parent="Decorations/Bones" instance=ExtResource("10_gi08r")]
+position = Vector2(5888, -128)
+
+[node name="Bones11" parent="Decorations/Bones" instance=ExtResource("10_gi08r")]
+position = Vector2(4672, 128)
+
+[node name="Signs" type="Node2D" parent="Decorations"]
+y_sort_enabled = true
+
+[node name="DecorationSign" parent="Decorations/Signs" instance=ExtResource("11_66s04")]
+position = Vector2(640, 192)
+
+[node name="DecorationSign2" parent="Decorations/Signs" instance=ExtResource("11_66s04")]
+position = Vector2(1088, 256)
+
+[node name="DecorationSign3" parent="Decorations/Signs" instance=ExtResource("11_66s04")]
+position = Vector2(1792, 704)
+
+[node name="DecorationSign4" parent="Decorations/Signs" instance=ExtResource("11_66s04")]
+position = Vector2(3712, 256)
+
+[node name="DecorationSign5" parent="Decorations/Signs" instance=ExtResource("11_66s04")]
+position = Vector2(4032, 960)
+
+[node name="DecorationSign6" parent="Decorations/Signs" instance=ExtResource("11_66s04")]
+position = Vector2(4800, 1152)
+
+[node name="DecorationSign7" parent="Decorations/Signs" instance=ExtResource("11_66s04")]
+position = Vector2(4992, 1728)
+
+[node name="DecorationSign8" parent="Decorations/Signs" instance=ExtResource("11_66s04")]
+position = Vector2(6016, 2048)
+
+[node name="DecorationSign9" parent="Decorations/Signs" instance=ExtResource("11_66s04")]
+position = Vector2(6144, 896)
+
+[node name="DecorationSign10" parent="Decorations/Signs" instance=ExtResource("11_66s04")]
+position = Vector2(6720, 128)
+
+[node name="DecorationSign11" parent="Decorations/Signs" instance=ExtResource("11_66s04")]
+position = Vector2(6080, -448)
+
+[node name="DecorationSign12" parent="Decorations/Signs" instance=ExtResource("11_66s04")]
+position = Vector2(4800, -832)
+
+[node name="DecorationSign13" parent="Decorations/Signs" instance=ExtResource("11_66s04")]
+position = Vector2(5952, 128)
+
+[node name="DecorationSign14" parent="Decorations/Signs" instance=ExtResource("11_66s04")]
+position = Vector2(5312, 704)
+
+[node name="DecorationSign15" parent="Decorations/Signs" instance=ExtResource("11_66s04")]
+position = Vector2(4416, 320)
+
+[node name="Ladders" type="Node2D" parent="."]
+
+[node name="LadderArea" parent="Ladders" instance=ExtResource("5_mypqw")]
 position = Vector2(2655, 606)
 
-[node name="LadderArea2" parent="." instance=ExtResource("5_mypqw")]
+[node name="LadderArea2" parent="Ladders" instance=ExtResource("5_mypqw")]
 
 [connection signal="body_entered" from="Bridge/BridgeArea" to="Bridge/BridgeArea" method="_on_body_entered"]
 [connection signal="body_exited" from="Bridge/BridgeArea" to="Bridge/BridgeArea" method="_on_body_exited"]

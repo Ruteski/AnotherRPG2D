@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://dgpa0rambbsrb"]
+
+[ext_resource type="PackedScene" uid="uid://c2w2n8lpch182" path="res://scenes/decoration_component.tscn" id="1_ixr3f"]
+[ext_resource type="Script" path="res://scripts/decoration_sign.gd" id="2_dmhi5"]
+
+[node name="DecorationSign" instance=ExtResource("1_ixr3f")]
+script = ExtResource("2_dmhi5")
+_texture_list = Array[String](["res://assets/Decorations/signs/16.png", "res://assets/Decorations/signs/17.png", "res://assets/Decorations/signs/18.png"])
+
+[node name="Texture1" parent="." index="0"]
+position = Vector2(0, -64)
+
+[node name="Texture2" parent="." index="1"]
+visible = false
+
+[node name="Texture3" parent="." index="2"]
+visible = false

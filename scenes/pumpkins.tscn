@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dcmxl6cytql3i"]
+
+[ext_resource type="PackedScene" uid="uid://c2w2n8lpch182" path="res://scenes/decoration_component.tscn" id="1_6arcv"]
+
+[node name="Pumpkins" instance=ExtResource("1_6arcv")]
+_texture_list = Array[String](["res://assets/Decorations/pumpkins/12.png", "res://assets/Decorations/pumpkins/13.png"])

@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dw1jbj8nac13i"]
+
+[ext_resource type="PackedScene" uid="uid://c2w2n8lpch182" path="res://scenes/decoration_component.tscn" id="1_y8oub"]
+
+[node name="Mushroom" instance=ExtResource("1_y8oub")]
+_texture_list = Array[String](["res://assets/Decorations/mushroom/01.png", "res://assets/Decorations/mushroom/02.png", "res://assets/Decorations/mushroom/03.png"])
