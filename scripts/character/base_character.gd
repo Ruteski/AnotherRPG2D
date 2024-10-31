@@ -7,6 +7,7 @@ var _is_in_mountain: bool = false
 
 @export_category("Variables")
 @export var _move_speed: float = 128.0
+@export var _overspeed: float = 2.5
 @export var _left_attack_name: String = ""
 @export var _right_attack_name: String = ""
 
@@ -51,7 +52,10 @@ func move() -> void:
 		"move_down"
 	)
 	
-	velocity = _direction * _move_speed
+	if Input.is_action_pressed("overspeed"): 
+		velocity = _direction * _move_speed * _overspeed
+	else:
+		velocity = _direction * _move_speed
 	move_and_slide()
 
 
